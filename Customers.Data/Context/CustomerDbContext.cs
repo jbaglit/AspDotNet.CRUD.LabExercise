@@ -13,7 +13,7 @@ namespace Customers.Data.Context
     {
         private readonly string _connectionString;
 
-        public CustomerDbContext() : this("Server=2MMBQG3;Database=CustomerDb;User Id=sa;Password=@neznej77Z")
+        public CustomerDbContext() : this("Server=2MMBQG3;Database=CustomerDb;User Id=sa;Password=password")
         {
 
         }

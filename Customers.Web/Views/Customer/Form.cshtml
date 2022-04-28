@@ -1,0 +1,69 @@
+﻿@model Customers.Data.Models.Customer
+
+@{
+    var action = ViewData["Action"];
+}
+
+    <h3>@action Customer</h3>
+    <form asp-controller="customer" asp-action="save" method="post">
+
+        @*Hidden is use for Session Tracking, hides something from the view only*@
+        @Html.Hidden("action",action)  
+
+
+        <table border="2" cellpadding="1" cellspacing="1">
+            @if (action != null && action.ToString().ToLower().Equals("edit"))
+            {
+                <input asp-for="Id" type="hidden" />
+            } 
+            else
+            {
+            }
+            
+            <tr>
+                <td>First Name</td>
+                <td>
+                    <input asp-for="FirstName" />
+                </td>
+                <td>
+                    <span asp-validation-for="FirstName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>
+                    <input asp-for="LastName" type="text" />
+                </td>
+                <td>
+                    <span asp-validation-for="LastName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input asp-for="Address" />
+                </td>
+                <td>
+                    <span asp-validation-for="Address"></span>
+                </td>
+            </tr>
+              <tr>
+                <td>Phone</td>
+                <td>
+                    <input asp-for="Phone" />
+                </td>
+                <td>
+                    <span asp-validation-for="Phone"></span>
+                </td>
+            </tr>
+            
+        </table>
+
+        <button>
+            <a href="javascript:history.go(-1)">Back</a>
+        </button>
+        <td>&nbsp;</td>
+                
+        <input type="submit" value="Save" />
+    </form>
+
